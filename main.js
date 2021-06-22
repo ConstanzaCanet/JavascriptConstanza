@@ -63,7 +63,7 @@ for(let i=0; i <=10 ;i++){
 };
 
 
-let numlist =prompt('Puedo listarte números también! Puedo hacerlo hasta del 0 al 100, hasta qué número quieres que cuente?');
+let numlist =Number(prompt('Puedo listarte números también! Puedo hacerlo hasta del 0 al 100, hasta qué número quieres que cuente?'));
 console.log('CONSTANDO...');
 
 
