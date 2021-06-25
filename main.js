@@ -1,56 +1,44 @@
-//PRACTICANDO FUNCIONES--CONVERSOR  
+//TRABAJO COMPLEMENTARIO, FUNCIONES!
+
+function saluda(nombre){
+    alert(`¡Hola ${nombre}! En este apartado veremos alguna funciones basicas de física, será genial!`)
+}
+
+let nombre =prompt('Bienvenido,¿como te llamas?')
+saluda(nombre)
+
+alert('Vamos a ver la velocidad! Es una medida de tiempo sobre espacio, a continuación tendrás un cálculador de velocidad')
+
+
+/*function velocidad(distancia,tiempo){
+    let vel = (distancia / tiempo)
+    return vel; 
+}
+*/
+const velMetMin = (distancia, tiempo) => (distancia/tiempo).toFixed(2) + ' metros/minuto';
+const velKmHor = (distancia, tiempo) => (distancia/tiempo).toFixed(2) + ' Kilometros/hora';
+const velMetHor = (distancia, tiempo) => (distancia/tiempo).toFixed(2) + ' metros/hora';
+
+let distancia1= Number(prompt('Dime distancia en metros'))
+let tiempo1= Number(prompt('Dime tiempo en minutos'))
+
+console.log(velMetMin(distancia1,tiempo1));
+
+
  
-alert('Bienvenido! En el trabjo de hoy tenemos un conversor de unidades.')
 
-//longitud,distancia,ancho,etc
-//aquí defini  funcion tras funcion intenté con swich, pero no me anduvo y termine haciendolo así
-function kilometros(metros){
-    let resultado= parseFloat(metros * 0.01) + ' Km'
-    return resultado
-}
 
-function pulgadas(metros) {
-  let resultado = parseFloat( metros * 39.37) + ' pulgadas'
-  return resultado
-}
 
-function pies(metros) {
-  let resultado = parseFloat(metros * 3,28) + ' pies'
-  return resultado
-}
 
-function milimetros(metros) {
-  let resultado = parseFloat( metros * 1000) + ' milimetros'
-  return resultado
-}
 
-function mostrar(metros) {
-    console.log(`Estos ${metros} metros equivalen a:`)
-    console.log(kilometros(metros));
-    console.log(pulgadas(metros));
-    console.log(pies(metros));
-    console.log(milimetros(metros));
-}
 
-//PIDO DATOS EN METROS
-let metros=Number(prompt('Coloca la medida en metros'))
 
-mostrar(metros);
 
-alert('Puedo convertir los metros en algo espécifico también!');
 
-let metros2=Number(prompt('Coloca la medida en metros'))
-let unidad= prompt('dime a cual convertir los metros segun corresponda: mm ,Km , pulgadas o pies. ');
-unidad = unidad.toLowerCase();
 
-//REUTILIZO LAS FUNCIONES
 
-if (unidad == 'mm') {
-    alert(milimetros(metros2));
-}else if(unidad == 'km'){
-   alert(kilometros(metros2));
-}else if( unidad == 'pulgadas'){
-    alert(pulgadas(metros2));
-}else if( unidad == 'pies'){
-   alert(pies(metros2));
-}
+
+
+
+
+
