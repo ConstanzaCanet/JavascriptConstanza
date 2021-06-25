@@ -43,6 +43,8 @@ let metros2=Number(prompt('Coloca la medida en metros'))
 let unidad= prompt('dime a cual convertir los metros segun corresponda: mm ,Km , pulgadas o pies. ');
 unidad = unidad.toLowerCase();
 
+//REUTILIZO LAS FUNCIONES
+
 if (unidad == 'mm') {
     alert(milimetros(metros2));
 }else if(unidad == 'km'){
