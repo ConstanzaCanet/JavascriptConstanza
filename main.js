@@ -37,4 +37,18 @@ let metros=Number(prompt('Coloca la medida en metros'))
 
 mostrar(metros);
 
+alert('Puedo convertir los metros en algo espécifico también!');
 
+let metros2=Number(prompt('Coloca la medida en metros'))
+let unidad= prompt('dime a cual convertir los metros segun corresponda: mm ,Km , pulgadas o pies. ');
+unidad = unidad.toLowerCase();
+
+if (unidad == 'mm') {
+    alert(milimetros(metros2));
+}else if(unidad == 'km'){
+   alert(kilometros(metros2));
+}else if( unidad == 'pulgadas'){
+    alert(pulgadas(metros2));
+}else if( unidad == 'pies'){
+   alert(pies(metros2));
+}
