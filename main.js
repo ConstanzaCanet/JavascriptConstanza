@@ -99,4 +99,19 @@ console.log("----------------------------");
 console.log(MovieThree.youWant())
 console.log(MovieThree.rentDay())
 
+//coloco esto solo para claridad
+console.log("----------------------------");
 
+let give = confirm('¿Quieres vender alguna película?')
+if (give == true) {
+   let titleOb = prompt('Titulo:');
+   let genderOb= prompt('Genero/s:');
+   let durationOb= prompt('Duración:');
+   let yearOb= Number(prompt('Año de estreno:'));
+   let fullpriceOb= Number(prompt('Precio(sin unidad, manejamos $):')) ;
+
+   let MovieObtained = new Movie(titleOb ,genderOb, durationOb, yearOb, fullpriceOb)
+   console.log(MovieObtained);
+}else{
+  console.log(`Entonces otra ocación nos vemos! Gracias por visitarnos`)
+}
