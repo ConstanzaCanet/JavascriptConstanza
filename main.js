@@ -111,7 +111,12 @@ if (give == true) {
    let fullpriceOb= Number(prompt('Precio(sin unidad, manejamos $):')) ;
 
    let MovieObtained = new Movie(titleOb ,genderOb, durationOb, yearOb, fullpriceOb)
-   console.log(MovieObtained);
+   if (fullpriceOb >= 3000) {
+     console.log('Lo siento no puedo pagar tanto! Vuelve más adelante.')
+   }else{
+     console.log('Exelente! Te pago $' + MovieObtained.fullpriceOb + ' por la película ' + titleOb + ' .Gracias por visitarnos');
+   }
 }else{
-  console.log(`Entonces otra ocación nos vemos! Gracias por visitarnos`)
+  (`Entonces otra ocación nos vemos! Gracias por visitarnos`)
 }
+
