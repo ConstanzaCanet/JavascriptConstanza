@@ -69,6 +69,8 @@ const MovieTen = new Movie('Origen', 'Ciencia Ficcion', '2:42 horas', 2010,2800)
 let Movies = [MovieOne,MovieTwo,MovieThree,MovieFour,MovieFive,MovieSix,MovieSeven,MovieEight,MovieNine,MovieTen]
 console.log('Las peliculas que tenemos son: '); 
 for(const Movie of Movies){console.log(Movie.title)}
+console.log(`Dando un total de  ${Movies.length} peliculas en total `)
+
 //coloco esto solo para claridad
 console.log("----------------------------");
 
@@ -90,7 +92,8 @@ console.log(search());
 
 console.log("----------------------------");
 //EN LA PARTE DE LA VENTA IMPRIMO LA LISTA POR UNA CUESTION DE PRACTICIDAD, PARA HACER INCAPIE EN EL PUSH Y MOSTRAR QUE SE CAMBIO
-let give = confirm('¿Quieres vender alguna película?')
+function sale() {
+  let give = confirm('¿Quieres vender alguna película?')
 if (give == true) {
    let titleOb = prompt('Titulo:');
    let genderOb= prompt('Genero/s:');
@@ -99,13 +102,26 @@ if (give == true) {
    let fullpriceOb= Number(prompt('Precio(sin unidad, manejamos $):')) ;
 
    let MovieObtained = new Movie(titleOb ,genderOb, durationOb, yearOb, fullpriceOb)
-   if (fullpriceOb >= 3000) {
-     console.log('Lo siento no puedo pagar tanto! Vuelve más adelante.')
+   if ((titleOb == 0) && (fullpriceOb == 0)) {
+     console.log('Los datos están, incompletos!');
+     sale();
    }else{
-     Movies.push(MovieObtained);
-     for(const Movie of Movies){console.log(Movie.title)}
-     console.log('Exelente! Te pago $' + MovieObtained.fullpriceOb + ' por la película ' + titleOb + ' .Gracias por visitarnos');
+    if (fullpriceOb >= 3000) {
+      console.log('Lo siento no puedo pagar tanto! Vuelve más adelante.')
+    }else{
+      Movies.push(MovieObtained);
+      for(const Movie of Movies){console.log(Movie.title)}
+      console.log('Exelente! Te pago $' + MovieObtained.fullpriceOb + ' por la película ' + titleOb + ' .Gracias por visitarnos');
+    }
    }
+   
 }else{
   (`Entonces otra ocación nos vemos! Gracias por visitarnos`)
 }
+}
+//Llamo función
+sale();
+
+console.log("----------------------------");
+//Si se ingresa alguna peli nueva se muestra el cambio:
+console.log(`Dando un total de  ${Movies.length} peliculas en total `)
