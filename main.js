@@ -86,6 +86,8 @@ function search() {
 
 console.log(search()); 
 
+
+
 console.log("----------------------------");
 //EN LA PARTE DE LA VENTA IMPRIMO LA LISTA POR UNA CUESTION DE PRACTICIDAD, PARA HACER INCAPIE EN EL PUSH Y MOSTRAR QUE SE CAMBIO
 let give = confirm('¿Quieres vender alguna película?')
