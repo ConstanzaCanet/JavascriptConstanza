@@ -85,3 +85,25 @@ function search() {
 }
 
 console.log(search()); 
+
+console.log("----------------------------");
+//EN LA PARTE DE LA VENTA IMPRIMO LA LISTA POR UNA CUESTION DE PRACTICIDAD, PARA HACER INCAPIE EN EL PUSH Y MOSTRAR QUE SE CAMBIO
+let give = confirm('¿Quieres vender alguna película?')
+if (give == true) {
+   let titleOb = prompt('Titulo:');
+   let genderOb= prompt('Genero/s:');
+   let durationOb= prompt('Duración:');
+   let yearOb= Number(prompt('Año de estreno:'));
+   let fullpriceOb= Number(prompt('Precio(sin unidad, manejamos $):')) ;
+
+   let MovieObtained = new Movie(titleOb ,genderOb, durationOb, yearOb, fullpriceOb)
+   if (fullpriceOb >= 3000) {
+     console.log('Lo siento no puedo pagar tanto! Vuelve más adelante.')
+   }else{
+     Movies.push(MovieObtained);
+     for(const Movie of Movies){console.log(Movie.title)}
+     console.log('Exelente! Te pago $' + MovieObtained.fullpriceOb + ' por la película ' + titleOb + ' .Gracias por visitarnos');
+   }
+}else{
+  (`Entonces otra ocación nos vemos! Gracias por visitarnos`)
+}
