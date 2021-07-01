@@ -112,6 +112,8 @@ if (give == true) {
       Movies.push(MovieObtained);
       for(const Movie of Movies){console.log(Movie.title)}
       console.log('Exelente! Te pago $' + MovieObtained.fullpriceOb + ' por la película ' + titleOb + ' .Gracias por visitarnos');
+      //Si se ingresa alguna peli nueva se muestra el cambio:
+      console.log(`Dando un total de  ${Movies.length} peliculas en total `)
     }
    }
    
@@ -123,5 +125,4 @@ if (give == true) {
 sale();
 
 console.log("----------------------------");
-//Si se ingresa alguna peli nueva se muestra el cambio:
-console.log(`Dando un total de  ${Movies.length} peliculas en total `)
+
