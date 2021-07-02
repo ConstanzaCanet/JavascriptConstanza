@@ -52,19 +52,19 @@ class Movie{
     }
   }
 
-const MovieOne = new Movie('El señor de los anillos', 'Fantasía,Aventura', '3:21 horas', 2003, 3000)
-const MovieTwo = new Movie('El castillo en el cielo','Fantasía, Aventura','2:04 horas', 1989, 2800)
-const MovieThree = new Movie('Actividad Paranormal', 'Terror', '1:20 horas', 2007, 2500)
+const MovieOne = new Movie('El señor de los anillos', 'fantasía,aventura', '3:21 horas', 2003, 3000)
+const MovieTwo = new Movie('El castillo en el cielo','fantasía, aventura','2:04 horas', 1989, 2800)
+const MovieThree = new Movie('Actividad Paranormal', 'terror', '1:20 horas', 2007, 2500)
 
 //CONTINUO TRABAJANDO CON ARRAYS, practica
 //EXTIENDO MI CANTIDAD DE OBJETOS
-const MovieFour = new Movie('Pulp Fiction', 'Thriller. Comedia negra','2:58horas', 1994, 2500)
-const MovieFive = new Movie('La lista de Schindler','Drama','3:17 horas', 1993, 3000)
-const MovieSix = new Movie('El club de la pelea','Drama. Comedia', '2:31 horas', 1999, 2500)
-const MovieSeven = new Movie('Forrest Gump', 'Drama,Romance', '2:22 horas', 1994, 2300)
-const MovieEight = new Movie('Inglourious Basterds','Bélico, Accion', '2:33 horas', 2009, 3000)
-const MovieNine = new Movie('El padrino','Crime,Drama', '2:58 horas', 1972, 3000)
-const MovieTen = new Movie('Origen', 'Ciencia Ficcion', '2:42 horas', 2010,2800)
+const MovieFour = new Movie('Pulp Fiction', 'thriller. comedia negra','2:58horas', 1994, 2500)
+const MovieFive = new Movie('La lista de Schindler','drama','3:17 horas', 1993, 3000)
+const MovieSix = new Movie('El club de la pelea','drama. comedia', '2:31 horas', 1999, 2500)
+const MovieSeven = new Movie('Forrest Gump', 'drama,romance', '2:22 horas', 1994, 2300)
+const MovieEight = new Movie('Inglourious Basterds','bélico, accion', '2:33 horas', 2009, 3000)
+const MovieNine = new Movie('El padrino','crime,drama', '2:58 horas', 1972, 3000)
+const MovieTen = new Movie('Origen', 'ciencia ficcion', '2:42 horas', 2010,2800)
 
 let Movies = [MovieOne,MovieTwo,MovieThree,MovieFour,MovieFive,MovieSix,MovieSeven,MovieEight,MovieNine,MovieTen]
 console.log('Las peliculas que tenemos son: '); 
@@ -75,18 +75,22 @@ console.log(`Dando un total de  ${Movies.length} peliculas en total `)
 console.log("----------------------------");
 
 //CREO UNA FUNCION DE BUSQUEDA Y OFRECIMIENTO--
-function search() {
+function searchName() {
   let what = prompt('¿Que peli quieres?')
-  if ((Movies.find(Movie => Movie.title == what)) == true) {
+  if (Movies.find(Movie => Movie.title == what)) {
     let thisMovie = (Movies.find(Movie => Movie.title == what))
     console.log(`Tenemos esa peli! ${thisMovie.buy()}`); 
 
-  } else{
+  } else if (what == 0) {
+    console.log(('No has colocado datos'))
+    return searchName()
+
+  }else{
     return(`Lo sentimos no tenemos esa peli!`);
   }
 }
 
-console.log(search()); 
+console.log(searchName()); 
 
 
 
@@ -125,4 +129,13 @@ if (give == true) {
 sale();
 
 console.log("----------------------------");
+// FUNCIÓN FILTER, PARA BUSCAR POR GÉNERO
+for(const Movie of Movies){console.log(Movie.gender)}
 
+function searchGender() {
+  let preference = prompt('¿Qué genero buscas?')
+  preference = preference.toLowerCase
+  let filter = Movies.filter(Movie => Movie.title === preference)
+  return(filter);
+}
+console.log(searchGender());
