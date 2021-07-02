@@ -58,9 +58,9 @@ const MovieThree = new Movie('Actividad Paranormal', 'terror', '1:20 horas', 200
 
 //CONTINUO TRABAJANDO CON ARRAYS, practica
 //EXTIENDO MI CANTIDAD DE OBJETOS
-const MovieFour = new Movie('Pulp Fiction', 'thriller. comedia negra','2:58horas', 1994, 2500)
+const MovieFour = new Movie('Pulp Fiction', 'thriller, comedia negra','2:58horas', 1994, 2500)
 const MovieFive = new Movie('La lista de Schindler','drama','3:17 horas', 1993, 3000)
-const MovieSix = new Movie('El club de la pelea','drama. comedia', '2:31 horas', 1999, 2500)
+const MovieSix = new Movie('El club de la pelea','drama, comedia', '2:31 horas', 1999, 2500)
 const MovieSeven = new Movie('Forrest Gump', 'drama,romance', '2:22 horas', 1994, 2300)
 const MovieEight = new Movie('Inglourious Basterds','bélico, accion', '2:33 horas', 2009, 3000)
 const MovieNine = new Movie('El padrino','crime,drama', '2:58 horas', 1972, 3000)
@@ -130,12 +130,13 @@ sale();
 
 console.log("----------------------------");
 // FUNCIÓN FILTER, PARA BUSCAR POR GÉNERO
-for(const Movie of Movies){console.log(Movie.gender)}
+
 
 function searchGender() {
   let preference = prompt('¿Qué genero buscas?')
-  preference = preference.toLowerCase
-  let filter = Movies.filter(Movie => Movie.title === preference)
-  return(filter);
+  preference = preference.toLowerCase()
+  let filter = Movies.filter(Movie => Movie.gender.includes(preference))
+  return filter;
 }
+
 console.log(searchGender());
