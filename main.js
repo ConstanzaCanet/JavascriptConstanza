@@ -50,10 +50,10 @@ class Person{
   }
   //lA OPCION DE COMPRA FUNCIONARÁ PARA LA ELECCION DEL USUARIO Y PARA EL OFRECIMIENTO COMERCIAL
   buy(movie){
-    let cart = [];
+    this.cart=[];
     let quiere = confirm(`¿Quieres comprar ${movie.title}?`)
       if (quiere == true) {
-           cart.push(movie.title);
+           this.cart.push(movie);
            console.log(`${movie.title} agregado en tu carrito!`)
            return ('Te la llevas por $' + movie.fullprice * 0.45)
        }else{
@@ -114,7 +114,6 @@ console.log(community);
 console.log(logIn()); 
 
 console.log(community[0].buy(MovieOne));
-console.log(community[1].buy(MovieOne));
 
 
 
