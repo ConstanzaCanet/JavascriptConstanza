@@ -148,6 +148,21 @@ function logIn() {
   }
 }
 
+//FUNCION DE BUSQUEDA Y OFRECIMIENTO--
+function searchName() {
+  let what = prompt('¿Que peli quieres?')
+  if (Movies.find(Movie => Movie.title == what)) {
+    let thisMovie = (Movies.find(Movie => Movie.title == what))
+    console.log(`Tenemos esa peli! ${thisMovie.buy()}`); 
+
+  } else if (what == 0) {
+    console.log(('No has colocado datos'))
+    return searchName()
+
+  }else{
+    return(`Lo sentimos no tenemos esa peli!`);
+  }
+}
 //DE BUSQUEDA, POR GENERO
 function searchGender() {
   let preference = prompt('¿Qué genero buscas?')
