@@ -158,7 +158,7 @@ function searchGender() {
 //BUSCA POR PRECIO DE COMPRA
 function searchPrice() {
   let money = Number(prompt('¿Hasta cuanto quieres pagar por comprar una peli?'))
-  let filter = Movies.filter(Movie => Movie.fullprice < money)
+  let filter = Movies.filter(Movie => Movie.fullprice <= money)
   return filter;
 }
 
@@ -175,3 +175,5 @@ console.log(community[0].cart[0].title)
 
 //llamo la funcion:
 community[0].show()
+
+console.log(searchPrice())
