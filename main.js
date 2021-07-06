@@ -148,13 +148,20 @@ function logIn() {
   }
 }
 
-//DE BUSQUEDA:
+//DE BUSQUEDA, POR GENERO
 function searchGender() {
   let preference = prompt('¿Qué genero buscas?')
   preference = preference.toLowerCase()
   let filter = Movies.filter(Movie => Movie.gender.includes(preference))
   return filter;
 }
+//BUSCA POR PRECIO DE COMPRA
+function searchPrice() {
+  let money = Number(prompt('¿Hasta cuanto quieres pagar por comprar una peli?'))
+  let filter = Movies.filter(Movie => Movie.fullprice < money)
+  return filter;
+}
+
 
 //PROBANDO
 console.log(logIn());
