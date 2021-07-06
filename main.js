@@ -87,6 +87,7 @@ class Person{
     }
     //Quiero poder tener un metodo que me muestre el carrito de compras
     show() {
+      console.log(`Tu carrito posee estas pelis:`)
       for(let i=0; i < this.cart.length; i++)
       console.log (this.cart[i].title);
   }
@@ -189,7 +190,6 @@ console.log(community);
 console.log(community[0].cart[0].title)
 
 //llamo la funcion:
-console.log(`Tu carrito posee estas pelis:`)
 community[0].show()
 
 console.log(searchPrice())
