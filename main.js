@@ -35,6 +35,10 @@ const Movies = [MovieOne, MovieTwo, MovieThree, MovieFour, MovieFive,MovieSix,Mo
 //MUESTRO PROCUCTOS
 
 for (const movie of Movies) {
-    let namesMov = movie.title;
-    console.log(namesMov)
+  let namesMov = movie.title;
+  let ar =document.getElementById('productos')
+  let product = document.createElement('article')
+  product.textContent = `${namesMov}`
+  ar.appendChild(product)
 }
+
