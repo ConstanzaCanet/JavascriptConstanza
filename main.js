@@ -48,9 +48,61 @@ frase.innerHTML= '<h2>Puedes buscar pelicular y alquilarlas e incluso comprarlas
 
 document.body.appendChild(frase)
 
-
-
+//nodo dentro de nodo
 
 let frase2 = document.createElement('p')
 frase2.innerHTML= '<p>Aqui se desplegará la búsqueda y su resultado</p>'
 frase.appendChild(frase2)
+
+//UTILIZO FUNCIONES, ahora aplicando la nueva teoria
+//FUNCION DE BUSQUEDA Y OFRECIMIENTO--
+function searchName() {
+  let what = prompt('¿Que peli quieres?')
+  if (Movies.find(Movie => Movie.title == what)) {
+    let thisMovie = (Movies.find(Movie => Movie.title == what))
+    console.log(`Tenemos esa peli! ${thisMovie.title}`);
+     
+    let ress = document.createElement('article')
+    ress.innerHTML = `<article>${thisMovie.title}</article>`
+    document.body.appendChild(ress)
+
+  } else if (what == 0) {
+    console.log(('No has colocado datos'))
+   
+    let pero = document.createElement('article')
+    pero.innerHTML = `No has colocado datos!`
+    document.body.appendChild(pero)
+    
+    return searchName()
+
+  }else{
+    let ups = document.createElement('article')
+    ups.innerHTML = `Lo sentimos no tenemos esa peli!`;
+    document.body.appendChild(ups)
+
+    return(`Lo sentimos no tenemos esa peli!`);
+  }
+}
+//DE BUSQUEDA, POR GENERO
+function searchGender() {
+  let preference = prompt('¿Qué genero buscas?')
+  preference = preference.toLowerCase()
+  let filter = Movies.filter(Movie => Movie.gender.includes(preference))
+  for (const movie of filter) {
+    let namesMov = movie.title;
+    let product = document.createElement('li')
+    product.innerHTML = `<li>${namesMov}</li>`
+    document.body.appendChild(product)
+  }
+  return filter;
+}
+//BUSCA POR PRECIO DE COMPRA
+function searchPrice() {
+  let money = Number(prompt('¿Hasta cuanto quieres pagar por comprar una peli?'))
+  let filter = Movies.filter(Movie => Movie.fullprice <= money)
+  return filter;
+}
+
+//juego con funciones:
+console.log(searchName());
+console.log(searchGender());
