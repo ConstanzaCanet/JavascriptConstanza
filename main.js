@@ -42,3 +42,15 @@ for (const movie of Movies) {
   ar.appendChild(product)
 }
 
+//Practico creacion de nodos:
+let frase = document.createElement('h2')
+frase.innerHTML= '<h2>Puedes buscar pelicular y alquilarlas e incluso comprarlas!</h2>'
+
+document.body.appendChild(frase)
+
+
+
+
+let frase2 = document.createElement('p')
+frase2.innerHTML= '<p>Aqui se desplegará la búsqueda y su resultado</p>'
+frase.appendChild(frase2)
