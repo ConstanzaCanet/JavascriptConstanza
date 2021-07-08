@@ -65,7 +65,6 @@ function searchName() {
     let ress = document.createElement('article')
     ress.innerHTML = `<article>${thisMovie.title}</article>`
     document.body.appendChild(ress)
-
   } else if (what == 0) {
     console.log(('No has colocado datos'))
    
@@ -82,6 +81,11 @@ function searchName() {
 
     return(`Lo sentimos no tenemos esa peli!`);
   }
+      
+  let esp = document.createElement('br')
+  esp.innerHTML = `<br></br>`
+  document.body.appendChild(esp)
+
 }
 //DE BUSQUEDA, POR GENERO
 function searchGender() {
@@ -94,15 +98,30 @@ function searchGender() {
     product.innerHTML = `<li>${namesMov}</li>`
     document.body.appendChild(product)
   }
+     
+  let esp = document.createElement('br')
+  esp.innerHTML = `<br></br>`
+  document.body.appendChild(esp)
   return filter;
 }
 //BUSCA POR PRECIO DE COMPRA
 function searchPrice() {
   let money = Number(prompt('¿Hasta cuanto quieres pagar por comprar una peli?'))
   let filter = Movies.filter(Movie => Movie.fullprice <= money)
+  for (const movie of filter) {
+    let namesMov = movie.title;
+    let product = document.createElement('li')
+    product.innerHTML = `<li>${namesMov}</li>`
+    document.body.appendChild(product)
+  }
+  //agregue ese espacio para que no me molestara a la hora de ver los resultados
+  let esp = document.createElement('br')
+  esp.innerHTML = `<br></br>`
+  document.body.appendChild(esp)
   return filter;
 }
 
 //juego con funciones:
 console.log(searchName());
 console.log(searchGender());
+console.log(searchPrice());
