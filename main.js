@@ -45,39 +45,7 @@ document.body.appendChild(frase)
 frase2.innerHTML= '<p>Aqui se desplegará la búsqueda y su resultado</p>'
 frase.appendChild(frase2)
 */
-//UTILIZO FUNCIONES, ahora aplicando la nueva teoria
-//FUNCION DE BUSQUEDA Y OFRECIMIENTO--
-function searchName() {
-  let what = prompt('¿Que peli quieres?')
-  if (Movies.find(Movie => Movie.title == what)) {
-    let thisMovie = (Movies.find(Movie => Movie.title == what))
-    console.log(`Tenemos esa peli! ${thisMovie.title}`);
-     
-    let ress = document.createElement('article')
-    ress.innerHTML = `<article>${thisMovie.title}</article>`
-    document.body.appendChild(ress)
-  } else if (what == 0) {
-    console.log(('No has colocado datos'))
-   
-    let pero = document.createElement('article')
-    pero.innerHTML = `No has colocado datos!`
-    document.body.appendChild(pero)
-    
-    return searchName()
 
-  }else{
-    let ups = document.createElement('article')
-    ups.innerHTML = `Lo sentimos no tenemos esa peli!`;
-    document.body.appendChild(ups)
-
-    return(`Lo sentimos no tenemos esa peli!`);
-  }
-      
-  let esp = document.createElement('br')
-  esp.innerHTML = `<br></br>`
-  document.body.appendChild(esp)
-
-}
 //DE BUSQUEDA, POR GENERO
 function searchGender() {
   let preference = prompt('¿Qué genero buscas?')
@@ -112,42 +80,6 @@ function searchPrice() {
   return filter;
 }
 
-//PRESENTO TAREA DE EVENTOS
-//RETO DE LA CLASE(LO DEJO PARA CORRECCION):
-
-function Saluda() {
-  
-  let nombre = document.getElementById("nombre").value
-  let apellido = document.getElementById("apellido").value
-  let email = document.getElementById("email").value
-  let pasword = document.getElementById("pasword").value
-  if (nombre == 0 || email == 0) {
-    let conte2 = document.getElementsByClassName('Salud');
-    let saludando= document.createElement('p');
-    saludando.textContent = `No se pudo registrar! Faltan datos`
-    return conte2[0].appendChild(saludando)
-  } else if (apellido == 0 || pasword ==0) {
-    let conte2 = document.getElementsByClassName('Salud');
-    let saludando= document.createElement('p');
-    saludando.textContent = `No se pudo registrar! Faltan datos`
-    return conte2[0].appendChild(saludando)
-  }else if (pasword.length < 6) {
-    let conte2 = document.getElementsByClassName('Salud');
-    let saludando= document.createElement('p');
-    saludando.textContent = `No se pudo registrar! La contraseña es insuficiente`
-    return conte2[0].appendChild(saludando)
-  }{
-    let conte2 = document.getElementsByClassName('Salud');
-    let saludando= document.createElement('p');
-    saludando.textContent = `Exelente! Ya te encuentras logueado, tu nombre es ${nombre} ${apellido} y registraste tu email: ${email}`
-    conte2[0].appendChild(saludando)
-  }
-}
-
-
-
-let boton= document.getElementById("bot")
-boton.addEventListener("click", Saluda)
 
 
 //CONTINUO CON LA ENTREGA DE TAREA EVENTOS Y DOM!
@@ -163,3 +95,41 @@ function muestrame() {
 
 let boton2 = document.getElementById("mostrar")
 boton2.addEventListener("dblclick",muestrame)
+
+//UTILIZO FUNCIONES, ahora aplicando la nueva teoria
+//FUNCION DE BUSQUEDA Y OFRECIMIENTO--
+function searchName() {
+  let what = document.getElementById("busca").value
+  if (Movies.find(Movie => Movie.title == what)) {
+    let thisMovie = (Movies.find(Movie => Movie.title == what))
+    console.log(`Tenemos esa peli! ${thisMovie.title}`);
+     
+    let ress = document.createElement('article')
+    ress.innerHTML = `<article>${thisMovie.title}</article>`
+    document.body.appendChild(ress)
+  } else if (what == 0) {
+    console.log(('No has colocado datos'))
+   
+    let pero = document.createElement('article')
+    pero.innerHTML = `No has colocado datos!`
+    document.body.appendChild(pero)
+    
+    return searchName()
+
+  }else{
+    let ups = document.createElement('article')
+    ups.innerHTML = `Lo sentimos no tenemos esa peli!`;
+    document.body.appendChild(ups)
+
+    return(`Lo sentimos no tenemos esa peli!`);
+  }
+      
+  let esp = document.createElement('br')
+  esp.innerHTML = `<br></br>`
+  document.body.appendChild(esp)
+
+}
+
+let tecla = document.getElementById("select")
+tecla.addEventListener("click", searchName)
+
