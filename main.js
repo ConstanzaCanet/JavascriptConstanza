@@ -3,7 +3,7 @@ let greet = prompt('Hola! ¿Còmo te llamas?')
 let conte1 = document.getElementsByClassName('contenedor');
 console.log(conte1)
 let greetDom= document.createElement('p');
-greetDom.textContent = `Hola ${greet}! Bienvenido a nuestra tienda de pelis! Puedes loguearte si quieres`;
+greetDom.textContent = `Hola ${greet}! Bienvenido a nuestra tienda de pelis!`;
 conte1[0].appendChild(greetDom);
 //MUSTRO PARRAFO NUEVO!
 console.log(conte1)
@@ -32,15 +32,6 @@ const MovieNine = new Movie('El padrino','crime,drama', '2:58 horas', 1972, 3000
 const MovieTen = new Movie('Origen', 'ciencia ficcion', '2:42 horas', 2010,2800)
 //defino arrays de pelis:
 const Movies = [MovieOne, MovieTwo, MovieThree, MovieFour, MovieFive,MovieSix,MovieSeven, MovieEight,MovieNine, MovieTen]
-//MUESTRO PROCUCTOS
-
-for (const movie of Movies) {
-  let namesMov = movie.title;
-  let ar =document.getElementById('productos')
-  let product = document.createElement('article')
-  product.textContent = `${namesMov}`
-  ar.appendChild(product)
-}
 
 //Practico creacion de nodos:
 let frase = document.createElement('h2')
@@ -50,10 +41,10 @@ document.body.appendChild(frase)
 
 //nodo dentro de nodo
 
-let frase2 = document.createElement('p')
+/*let frase2 = document.createElement('p')
 frase2.innerHTML= '<p>Aqui se desplegará la búsqueda y su resultado</p>'
 frase.appendChild(frase2)
-
+*/
 //UTILIZO FUNCIONES, ahora aplicando la nueva teoria
 //FUNCION DE BUSQUEDA Y OFRECIMIENTO--
 function searchName() {
@@ -140,7 +131,12 @@ function Saluda() {
     let saludando= document.createElement('p');
     saludando.textContent = `No se pudo registrar! Faltan datos`
     return conte2[0].appendChild(saludando)
-  }else{
+  }else if (pasword.length < 6) {
+    let conte2 = document.getElementsByClassName('Salud');
+    let saludando= document.createElement('p');
+    saludando.textContent = `No se pudo registrar! La contraseña es insuficiente`
+    return conte2[0].appendChild(saludando)
+  }{
     let conte2 = document.getElementsByClassName('Salud');
     let saludando= document.createElement('p');
     saludando.textContent = `Exelente! Ya te encuentras logueado, tu nombre es ${nombre} ${apellido} y registraste tu email: ${email}`
@@ -155,4 +151,15 @@ boton.addEventListener("click", Saluda)
 
 
 //CONTINUO CON LA ENTREGA DE TAREA EVENTOS Y DOM!
+function muestrame() {
+  for (const movie of Movies) {
+    let namesMov = movie.title;
+    let ar =document.getElementById('productos')
+    let product = document.createElement('article')
+    product.textContent = `${namesMov}`
+    ar.appendChild(product)
+  }  
+}
 
+let boton2 = document.getElementById("mostrar")
+boton2.addEventListener("dblclick",muestrame)
