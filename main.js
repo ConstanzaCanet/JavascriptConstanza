@@ -121,7 +121,5 @@ function searchPrice() {
   return filter;
 }
 
-//juego con funciones:
-console.log(searchName());
-console.log(searchGender());
-console.log(searchPrice());
+//PRESENTO TAREA DE EVENTOS
+
