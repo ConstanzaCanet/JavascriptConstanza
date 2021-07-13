@@ -139,7 +139,7 @@ tecla.addEventListener("click", searchName)
 function accionEnter(event) {
  
   if (event.keyCode == 13) {
-    let text= document.getElementById('wage').value;
+    let text= document.getElementById('opina').value;
     let coment = document.getElementById('Comenta');
     let Comentas = document.createElement('p')
     Comentas.textContent= `${text}`
@@ -149,4 +149,4 @@ function accionEnter(event) {
 
 }
 
-document.getElementById('wage').addEventListener('keydown', accionEnter)
+document.getElementById('opina').addEventListener('keydown', accionEnter)
