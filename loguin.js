@@ -54,4 +54,3 @@ function Saluda() {
   
   let boton= document.getElementById("bot")
   boton.addEventListener("click", Saluda)
-

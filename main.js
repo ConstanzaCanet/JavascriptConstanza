@@ -133,3 +133,20 @@ function searchName() {
 let tecla = document.getElementById("select")
 tecla.addEventListener("click", searchName)
 
+
+//EVENTOS SEGUNDA PARTE, SE ESTUDIA COMO ASIGNAR TECLA ENTER PARA CONFIRMAR EVENTOS.
+
+function accionEnter(event) {
+ 
+  if (event.keyCode == 13) {
+    let text= document.getElementById('wage').value;
+    let coment = document.getElementById('Comenta');
+    let Comentas = document.createElement('p')
+    Comentas.textContent= `${text}`
+    coment.appendChild(Comentas) 
+
+  }
+
+}
+
+document.getElementById('wage').addEventListener('keydown', accionEnter)
