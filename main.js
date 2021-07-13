@@ -76,6 +76,34 @@ function muestrame() {
 let boton2 = document.getElementById("mostrar")
 boton2.addEventListener("dblclick",muestrame)
 
+
+//EVENTOS SEGUNDA PARTE, SE ESTUDIA COMO ASIGNAR TECLA ENTER PARA CONFIRMAR EVENTOS.
+
+function accionEnter(event) {
+ 
+  if (event.keyCode == 13) {
+    let text= document.getElementById('opina').value;
+    let coment = document.getElementById('Comenta');
+    let Comentas = document.createElement('p')
+    Comentas.textContent= `${text}`
+    coment.appendChild(Comentas) 
+  }
+
+}
+
+function click() {
+  let text= document.getElementById('opina').value;
+  let coment = document.getElementById('Comenta');
+  let Comentas = document.createElement('p')
+  Comentas.textContent= `${text}`
+  coment.appendChild(Comentas) 
+}
+
+document.getElementById('opina').addEventListener('keydown', accionEnter)
+document.getElementById('sub').addEventListener('click', click)
+//IMPRIMIR:
+
+
 //UTILIZO FUNCIONES, ahora aplicando la nueva teoria
 //FUNCION DE BUSQUEDA Y OFRECIMIENTO--
 function searchName() {
@@ -85,7 +113,14 @@ function searchName() {
     console.log(`Tenemos esa peli! ${thisMovie.title}`);
      
     let ress = document.createElement('article')
-    ress.innerHTML = `<article>${thisMovie.title}</article>`
+    ress.innerHTML = 
+                `<div class="card" style="width: 18rem;">
+                   <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${thisMovie.title}</h5>
+                     <p class="card-text"> ${thisMovie.gender} , posee una duracion de ${thisMovie.duration}, del año ${thisMovie.year}. Precio de compra ${thisMovie.fullprice}</p>
+                    </div>
+                </div>`
     document.body.appendChild(ress)
   } else if (what == 0) {
     console.log(('No has colocado datos'))
@@ -112,29 +147,3 @@ function searchName() {
 
 let tecla = document.getElementById("select")
 tecla.addEventListener("click", searchName)
-
-
-//EVENTOS SEGUNDA PARTE, SE ESTUDIA COMO ASIGNAR TECLA ENTER PARA CONFIRMAR EVENTOS.
-
-function accionEnter(event) {
- 
-  if (event.keyCode == 13) {
-    let text= document.getElementById('opina').value;
-    let coment = document.getElementById('Comenta');
-    let Comentas = document.createElement('p')
-    Comentas.textContent= `${text}`
-    coment.appendChild(Comentas) 
-  }
-
-}
-
-function click() {
-  let text= document.getElementById('opina').value;
-  let coment = document.getElementById('Comenta');
-  let Comentas = document.createElement('p')
-  Comentas.textContent= `${text}`
-  coment.appendChild(Comentas) 
-}
-
-document.getElementById('opina').addEventListener('keydown', accionEnter)
-document.getElementById('sub').addEventListener('click', click)
