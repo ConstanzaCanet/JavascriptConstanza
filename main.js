@@ -1,12 +1,4 @@
-let greet = prompt('Hola! ¿Còmo te llamas?')
 
-let conte1 = document.getElementsByClassName('contenedor');
-console.log(conte1)
-let greetDom= document.createElement('p');
-greetDom.textContent = `Hola ${greet}! Bienvenido a nuestra tienda de pelis!`;
-conte1[0].appendChild(greetDom);
-//MUSTRO PARRAFO NUEVO!
-console.log(conte1)
 //CREO OJETOS NUEVOS PARA MOSTRAR
 
 class Movie{
@@ -33,18 +25,6 @@ const MovieTen = new Movie('Origen', 'ciencia ficcion', '2:42 horas', 2010,2800)
 //defino arrays de pelis:
 const Movies = [MovieOne, MovieTwo, MovieThree, MovieFour, MovieFive,MovieSix,MovieSeven, MovieEight,MovieNine, MovieTen]
 
-//Practico creacion de nodos:
-let frase = document.createElement('h2')
-frase.innerHTML= '<h2>Puedes buscar pelicular y alquilarlas e incluso comprarlas!</h2>'
-
-document.body.appendChild(frase)
-
-//nodo dentro de nodo
-
-/*let frase2 = document.createElement('p')
-frase2.innerHTML= '<p>Aqui se desplegará la búsqueda y su resultado</p>'
-frase.appendChild(frase2)
-*/
 
 //DE BUSQUEDA, POR GENERO
 function searchGender() {
@@ -144,9 +124,17 @@ function accionEnter(event) {
     let Comentas = document.createElement('p')
     Comentas.textContent= `${text}`
     coment.appendChild(Comentas) 
-
   }
 
 }
 
+function click() {
+  let text= document.getElementById('opina').value;
+  let coment = document.getElementById('Comenta');
+  let Comentas = document.createElement('p')
+  Comentas.textContent= `${text}`
+  coment.appendChild(Comentas) 
+}
+
 document.getElementById('opina').addEventListener('keydown', accionEnter)
+document.getElementById('sub').addEventListener('click', click)
