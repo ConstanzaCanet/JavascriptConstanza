@@ -2,26 +2,27 @@
 //CREO OJETOS NUEVOS PARA MOSTRAR
 
 class Movie{
-  constructor(title ,gender, duration, year, fullprice){
+  constructor(title ,gender, duration, year, fullprice,image){
     this.title = title;
     this.gender= gender;
     this.duration= duration;
     this.year= year;
     this.fullprice= fullprice;
+    this.image= image;
   }
 }
 
 //DEFINO PELICULAS DISPONIBLES:
-const MovieOne = new Movie('El señor de los anillos', 'Fantasía,Aventura', '3:21 horas', 2003, 3000)
-const MovieTwo = new Movie('El castillo en el cielo','Fantasía, Aventura','2:04 horas', 1989, 2800)
-const MovieThree = new Movie('Actividad Paranormal', 'Terror', '1:20 horas', 2007, 2500)
-const MovieFour = new Movie('Pulp Fiction', 'thriller, comedia negra','2:58horas', 1994, 2500)
-const MovieFive = new Movie('La lista de Schindler','drama','3:17 horas', 1993, 3000)
-const MovieSix = new Movie('El club de la pelea','drama, comedia', '2:31 horas', 1999, 2500)
-const MovieSeven = new Movie('Forrest Gump', 'drama,romance', '2:22 horas', 1994, 2300)
-const MovieEight = new Movie('Inglourious Basterds','bélico, accion', '2:33 horas', 2009, 3000)
-const MovieNine = new Movie('El padrino','crime,drama', '2:58 horas', 1972, 3000)
-const MovieTen = new Movie('Origen', 'ciencia ficcion', '2:42 horas', 2010,2800)
+const MovieOne = new Movie('El señor de los anillos', 'Fantasía,Aventura', '3:21 horas', 2003, 3000, `./images/lordoftherings.jpg` )
+const MovieTwo = new Movie('El castillo en el cielo','Fantasía, Aventura','2:04 horas', 1989, 2800, './images/castillo.jpg')
+const MovieThree = new Movie('Actividad Paranormal', 'Terror', '1:20 horas', 2007, 2500, "./images/paranormal.jpg")
+const MovieFour = new Movie('Pulp Fiction', 'thriller, comedia negra','2:58horas', 1994, 2500,"./images/polp.jpg")
+const MovieFive = new Movie('La lista de Schindler','drama','3:17 horas', 1993, 3000,"./images/schneider.jpg")
+const MovieSix = new Movie('El club de la pelea','drama, comedia', '2:31 horas', 1999, 2500,"./images/club.jpg" )
+const MovieSeven = new Movie('Forrest Gump', 'drama,romance', '2:22 horas', 1994, 2300,"./images/forest.jpg")
+const MovieEight = new Movie('Inglourious Basterds','bélico, accion', '2:33 horas', 2009, 3000,"./images/bastards.jpg")
+const MovieNine = new Movie('El padrino','crime,drama', '2:58 horas', 1972, 3000,"./images/images.jpg")
+const MovieTen = new Movie('Origen', 'ciencia ficcion', '2:42 horas', 2010,2800,"./images/origen.jpg")
 //defino arrays de pelis:
 const Movies = [MovieOne, MovieTwo, MovieThree, MovieFour, MovieFive,MovieSix,MovieSeven, MovieEight,MovieNine, MovieTen]
 
@@ -68,7 +69,15 @@ function muestrame() {
     let namesMov = movie.title;
     let ar =document.getElementById('productos')
     let product = document.createElement('article')
-    product.textContent = `${namesMov}`
+    product.innerHTML = 
+                  `<div class="card mb-3 container">
+                    <img src="${movie.image}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${namesMov}</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>`
     ar.appendChild(product)
   }  
 }
@@ -111,17 +120,18 @@ function searchName() {
   if (Movies.find(Movie => Movie.title == what)) {
     let thisMovie = (Movies.find(Movie => Movie.title == what))
     console.log(`Tenemos esa peli! ${thisMovie.title}`);
+    let conte1 = document.getElementsByClassName('contenedor');
      
     let ress = document.createElement('article')
     ress.innerHTML = 
-                `<div class="card" style="width: 18rem;">
-                   <img src="..." class="card-img-top" alt="...">
+                `<div class="card m-5" style="width: 18rem;">
+                   <img src="${thisMovie.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">${thisMovie.title}</h5>
                      <p class="card-text"> ${thisMovie.gender} , posee una duracion de ${thisMovie.duration}, del año ${thisMovie.year}. Precio de compra ${thisMovie.fullprice}</p>
                     </div>
                 </div>`
-    document.body.appendChild(ress)
+  conte1[0].appendChild(ress);
   } else if (what == 0) {
     console.log(('No has colocado datos'))
    
