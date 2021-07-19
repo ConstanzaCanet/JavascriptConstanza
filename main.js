@@ -157,3 +157,29 @@ function searchName() {
 
 let tecla = document.getElementById("select")
 tecla.addEventListener("click", searchName)
+
+
+
+class Personita{
+  constructor(nombre,apellido){
+    this.nombre=nombre;
+    this.apellido=apellido;
+  }
+}
+
+let PersonitaS = [];
+
+
+function Imprime() {
+  let one=$("#name1").value
+  let two=$("#lastname1").value
+  let P = new Personita (one,two)
+  PersonitaS.push(P)
+  let Conf=confirm('Tienes más de 20?')
+  if (Conf ==true) {
+    console.log(`${PersonitaS}  Tu nombre es ${one} ${two}`)
+    $('#texto').innerHTML(`${one} ${two}`)
+  }
+  
+}
+$("#imprime").addEventListener('click',Imprime)
